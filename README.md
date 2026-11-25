@@ -1,2 +1,5 @@
-# fitahorro-precios
-Actualización automática de precios de supermercados.
+# Actualizador público de precios de FitAhorro
+Este directorio es un proyecto independiente: publicar **solo su contenido** en un repositorio público GitHub (no el código Android ni datos personales). Ajustes > Pages > Source: GitHub Actions. Ejecutar manualmente el workflow «Actualizar precios abiertos» y comprobar los JSON. La URL raíz de Pages debe configurarse en `FIT_PRICE_FEED_URL` de gradle.properties del Android, sin barra final. Ejemplo ilustrativo: `https://usuario.github.io/fitahorro-precios` (no es una URL activa).
+Se publica la captura más reciente disponible, no se cambia la fecha por la de la descarga. Si falla el procesamiento, no se ejecuta el despliegue. El horario es UTC y GitHub puede retrasar o desactivar tareas programadas si no hay actividad. Revisar Actions periódicamente.
+Prueba local: Python 3.12 + `pip install pyarrow==19.0.1`; `python update.py --archive prices.tar.gz --date 2026-11-25 --out public`.
+Fuente https://github.com/ruvelro/opencesta — datos ODbL 1.0 https://opendatacommons.org/licenses/odbl/1-0/. Conversión y selección: FitAhorro; los datos derivados se publican gratis, sin autenticación y bajo ODbL. No se publica la aplicación ni se venden los datos. Revisar cambios de licencia/cobertura. DIA es zona genérica, no precio local garantizado.
